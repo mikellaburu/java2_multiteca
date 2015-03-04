@@ -40,7 +40,7 @@ public final class Main {
 						break;
 					case 3: //Mostrar  obras
 						if (multiteca == null) {
-							System.out.println("No es posible mostrar productos sin haber sido solicitados");
+							System.out.println("No es posible mostrar las obras sin haber sido solicitados");
 						}
 						multiteca.mostrarMultiteca();
 						break;
