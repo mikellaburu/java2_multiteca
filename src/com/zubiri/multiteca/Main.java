@@ -17,7 +17,7 @@ public final class Main {
 				System.out.println("java main.java <fichero_artistas>");
 				System.exit(-1);
 			} 
-	    	//Leemos la lista de distribuidores del fichero.
+	    	//Leemos la lista de artistas del fichero.
 			Artistas.leerArtistas(args[0]);
 
 			do {
@@ -31,14 +31,14 @@ public final class Main {
 				seleccion = sc.nextInt();
 				switch (seleccion) {
 					
-					case 1: //Mostrar distribuidores
+					case 1: //Mostrar artistas
 						Artistas.mostrarArtistas();
 						break;
 						
-					case 2: //Solicitar productos
+					case 2: //Solicitar obras
 						multiteca = new Multiteca(sc);
 						break;
-					case 3: //Mostrar productos
+					case 3: //Mostrar  obras
 						if (multiteca == null) {
 							System.out.println("No es posible mostrar productos sin haber sido solicitados");
 						}
