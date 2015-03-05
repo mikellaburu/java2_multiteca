@@ -8,8 +8,8 @@ final public class Libro extends Obra{
 	private String editorial;
 	private int numPaginas = 0;
 	
-	public Libro(String titulo, Artista autor, int añoEdicion, String editorial, int numPaginas) {
-		super (titulo,autor,añoEdicion);
+	public Libro(String titulo, Artista autor, int anhoEdicion, String editorial, int numPaginas) {
+		super (titulo,autor,anhoEdicion);
 		this.editorial = editorial;
 		this.numPaginas = numPaginas;
 	}
@@ -17,24 +17,35 @@ final public class Libro extends Obra{
 	public Libro (Scanner sc){
 		
 		super(sc);
+		
 		do{
-			System.out.println("Escribe la editorial del libro: Random House, HarperCollins, Simon & Schuster, Penguin Group,Houghton Mifflin Harcourt");
+			System.out.println("LIBRO");
+			System.out.println("Cual es la editorial del libro? Opciones: Elkar, RAMA, Cambribge");
+			System.out.println("El nombre de editorial escribe todo en mayusculas o todo en minusculas por favor");
+			
 			try {
 				
 				this.setEditorial(sc.next());
+				
 			}catch(Exception e){
-				System.out.println("Esa editorial no es una opcion");
+				
+				System.out.println("Editorial no valida, debe ser: Elkar, RAMA, Cambridge");
 			}
+			
 		}while (editorial == null);
 		
 		do {
 			try {
-				System.out.println("Escribe el numero de paginas del libro: ");
-		this.setNumPaginas(sc.nextInt());
+				
+				System.out.println("Cuantas paginas tiene? ");
+				this.setNumPaginas(sc.nextInt());
+				
 			}catch (InputMismatchException e){
+				
 				System.out.println("Eso no es numero");
 				sc.nextLine();
 			}
+			
 		}while (numPaginas == 0);
 		
 	}
@@ -47,21 +58,17 @@ final public class Libro extends Obra{
 	public void setEditorial(String editorial) throws Exception {
 		
 		switch (editorial){
-		case "RANDOM HOUSE":
-		case "Random House":
-		case "HarperCollins":
-		case "HARPERCOLLINS":
-		case "Simon & Schuster":
-		case "SIMON & SCHUSTER":
-		case "Penguin Group":
-		case "PENGUIN GROUP":
-		case "Houghton Mifflin Harcourt":
-		case "HOUGHTON MIFFLIN HARCOURT":
-			this.editorial = editorial;
-			break;
-		default:
-			throw new Exception("EDITORIALES PERMITIDAS: Random House, HarperCollins, Simon & Schuster, Penguin Group,Houghton Mifflin Harcourt" );
-	}
+			case "ELKAR":
+			case "RAMA":
+			case "CAMBRIDGE":
+			case "elkar":
+			case "rama":
+			case "cambridge":
+				this.editorial = editorial;
+				break;
+			default:
+				throw new Exception("Editorial no valida, debe ser: Elkar, RAMA, Cambridge" );
+		}
 	}
 	
 	public int getNumPaginas() {
@@ -69,9 +76,9 @@ final public class Libro extends Obra{
 		return numPaginas;
 	}
 	
-	public void setNumPaginas(int numPaginas) {
+	public void setNumPaginas(int paginas) {
 		
-		this.numPaginas = numPaginas;
+		this.numPaginas = paginas;
 	}
 	
 	public void mostrarLibro(){
@@ -79,16 +86,16 @@ final public class Libro extends Obra{
 		System.out.println("LIBRO:");
 		super.mostrarObra();
 		System.out.println("\tEditorial: " + this.editorial);
-		System.out.println("\tNumero de paginas del libro: " + this.numPaginas);
+		System.out.println("\tNumero de paginas: " + this.numPaginas);
 	}
 	
 	public String formattedObra() {
 		
-		String LibroStr = 
-				"EDITORIAL:" + this.editorial + "\n" + 
-				"NUMERO DE PAGINAS:" + this.numPaginas  + "\n" ;
+		String libroStr = 
+			"\tEditorial:" + this.editorial + "\n" + 
+			"\tNumero de paginas:" + this.numPaginas  + "\n" ;
 				
-				return LibroStr;
+			return libroStr;
 		
 	}
 

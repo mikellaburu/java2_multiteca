@@ -7,17 +7,17 @@ public abstract class Obra {
 	
 	private String titulo;
 	private Artista autor;
-	private int añoEdicion = 0;
+	private int anhoEdicion = 0;
 	
 	public Obra() {
 		
 	}
 	
-	public Obra(String titulo, Artista autor, int añoEdicion) {
+	public Obra(String titulo, Artista autor, int anhoEdicion) {
 	
 		this.titulo = titulo;
 		this.autor = autor;
-		this.añoEdicion = añoEdicion;
+		this.anhoEdicion = anhoEdicion;
 	}
 	
 	public Obra(Scanner sc) {
@@ -27,13 +27,13 @@ public abstract class Obra {
 
 		do {
 			try {
-		System.out.println("Año de edicion de la obra:");
-		this.setAñoEdicion(sc.nextInt());
+		System.out.println("Aï¿½o de edicion de la obra:");
+		this.setAnhoEdicion(sc.nextInt());
 			}catch(InputMismatchException exception){
 				System.out.println("Eso no es numero");
 				sc.nextLine();
 			}
-		} while (añoEdicion == 0);
+		} while (anhoEdicion == 0);
 		System.out.println("Autor de la obra:");
 		this.setAutor(Artistas.buscarArtista(sc.next()));
 		
@@ -49,14 +49,14 @@ public abstract class Obra {
 		this.autor = autor;
 	}
 
-	public int getAñoEdicion() {
+	public int getAnhoEdicion() {
 		
-		return añoEdicion;
+		return anhoEdicion;
 	}
 
-	public void setAñoEdicion(int añoEdicion) {
+	public void setAnhoEdicion(int anhoEdicion) {
 		
-		this.añoEdicion = añoEdicion;
+		this.anhoEdicion = anhoEdicion;
 	}
 
 	public String getTitulo() {
@@ -70,7 +70,7 @@ public abstract class Obra {
 	
 	public void mostrarObra () {
 		System.out.println("\tTitulo:" + this.getTitulo());
-		System.out.println("\tAño de edicion:" + this.getAñoEdicion());
+		System.out.println("\tAÃ±o de edicion:" + this.getAnhoEdicion());
 		System.out.println("\tArtista: " + this.getAutor().getNombre());
 		System.out.println("\t");
 	}
@@ -84,9 +84,9 @@ public abstract class Obra {
 	public String formattedObra() {
 		
 		String ObraStr = 
-				"TITULO:" + this.titulo + "\n" + 
-				"AUTOR:" + this.autor  + "\n" +
-				"AñO EDICION:" + this.añoEdicion  + "\n" ;
+				"Titulo:" + this.titulo + "\n" + 
+				"Autor:" + this.autor  + "\n" +
+				"AÃ±o de edicion:" + this.anhoEdicion  + "\n" ;
 				
 				return ObraStr;
 		

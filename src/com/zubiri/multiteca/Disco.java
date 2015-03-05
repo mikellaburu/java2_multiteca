@@ -5,60 +5,64 @@ import java.util.Scanner;
 
 final public class Disco extends Obra{
 	
-	private String discografia;
+	private String discografica;
 	private int nCanciones = 0;
 	
-	public Disco(String titulo, Artista autor, int añoEdicion, String discografia, int nCanciones) {
-		super (titulo,autor,añoEdicion);
-		this.discografia = discografia;
+	public Disco(String titulo, Artista autor, int anhoEdicion, String discografica, int nCanciones) {
+		super (titulo,autor,anhoEdicion);
+		this.discografica = discografica;
 		this.nCanciones = nCanciones;
 	}
 	
 	public Disco (Scanner sc){
 		
 		super(sc);
+		
 		do {
-			System.out.println("Escribe la discografia del disco : Universal Music-Sony Music-Warner Music ");		
+			System.out.println("DISCO");
+			System.out.println("Escribe el nombre de la discografica, por favor escribe el nombre entero todo en mayusculas o todo en minusculas: CBS,Virgin,Discos Suicidas,DRO,Elkar");		
 			try{
-				this.setDiscografia(sc.next());
+				this.setDiscografica(sc.next());
 			}catch(Exception e){
-				System.out.println("Esa no es la discografia");
+				System.out.println("El nombre no es correcto");
 			}
-		}while (discografia == null);
+		}while (discografica == null);
 		do {
 			try{
-				System.out.println("Escribe el numero de canciones");
+				
+				System.out.println("Cuantas canciones tiene?");
 				this.setnCanciones(sc.nextInt());
+				
 			}catch(InputMismatchException e){
+				
 				System.out.println("Eso no es numero");
 				sc.nextLine();
 			} 
+			
 		}while (nCanciones == 0);
 	}
-	public String getDiscografia() {
+	public String getDiscografica() {
 		
-		return discografia;
+		return discografica;
 	}
 	
-	public void setDiscografia(String discografia) throws Exception {
+	public void setDiscografica(String discografica) throws Exception {
 		
-		switch (discografia){
-		case "UNIVERSAL MUSIC":
-		case "Universal Music":
-		case "UNIVERSAL":
-		case "Universal":
-		case "SONY MUSIC":
-		case "Sony Music":
-		case "SONY":
-		case "Sony":
-		case "WARNER MUSIC":
-		case "Warner Music":
-		case "WARNER":
-		case "Warner":
-			this.discografia = discografia;
+		switch (discografica){
+		case "CBS":
+		case "VIRGIN":
+		case "DISCOS SUICIDAS":
+		case "DRO":
+		case "ELKAR":
+		case "cbs":
+		case "virgin":
+		case "discos suicidas":
+		case "dro":
+		case "elkar":
+			this.discografica = discografica;
 			break;
 		default:
-			throw new Exception("DISCOGRAFIAS PERMITIDAS: Universal Music, Sony Music, Warner Music");
+			throw new Exception("Discografica no valida, debe ser: CBS, Virgin, Discos Suicidas, DRO, Elkar");
 	}
 		
 	}
@@ -68,25 +72,26 @@ final public class Disco extends Obra{
 		return nCanciones;
 	}
 	
-	public void setnCanciones(int nCanciones) {
+	public void setnCanciones(int numCanciones) {
 		
-		this.nCanciones = nCanciones;
+		this.nCanciones = numCanciones;
 	}
 	
 	public void mostrarDisco(){
 		
-		System.out.println("MANZANA:");
+		System.out.println("DISCO:");
 		super.mostrarObra();
-		System.out.println("\tDiscografia: " + this.discografia);
-		System.out.println("\tNumero de canciones del disco: " + this.nCanciones);
+		System.out.println("\tDiscografica: " + this.discografica);
+		System.out.println("\tNumero de canciones: " + this.nCanciones);
 	}
+	
 	public String formattedObra() {
 		
-		String DiscoStr = 
-				"DISCOGRAFIA:" + this.discografia + "\n" + 
-				"NUMERO DE CANCIONES:" + this.nCanciones  + "\n" ;
+		String discoStr = 
+				"\tDiscografica:" + this.discografica + "\n" + 
+				"\tNumero de canciones:" + this.nCanciones  + "\n" ;
 				
-				return DiscoStr;
+				return discoStr;
 		
 		
 	}

@@ -8,8 +8,8 @@ final public class Pelicula extends Obra{
 	private String productora;
 	private ArrayList<Artista> interpretes;
 	
-	public Pelicula(String titulo, Artista autor, int añoEdicion, String productora, ArrayList<Artista> interpretes) {
-		super (titulo,autor,añoEdicion);
+	public Pelicula(String titulo, Artista autor, int anhoEdicion, String productora, ArrayList<Artista> interpretes) {
+		super (titulo,autor,anhoEdicion);
 		this.productora = productora;
 		this.interpretes = interpretes;
 	}
@@ -19,15 +19,22 @@ final public class Pelicula extends Obra{
 		super(sc);
 
 		do{
-			System.out.println("Escribe la productora de la pelicula: Warner Bros, Universal Pictures, 20th Century Fox, Paramount Pictures, Dream Works Pictures");
+			System.out.println("PELICULA");
+			System.out.println("Nombre de la productora: Fox, Warner Bros, Filmax");
+			System.out.println("Escribe todo en mayusculas o todo en minusculas por favor");
+			
 			try {
 				
 				this.setProductora(sc.next());
+				
 			}catch(Exception e){
-				System.out.println("Esa productora no es una opcion");
+				
+				System.out.println("Productora no valida, debe ser: Fox, Warner Bros, Filmax");
 			}
+			
 		}while (productora == null);
-		System.out.println("Escribe los artistas de la pelicula");
+		
+		System.out.println("Escribe los actores:");
 		this.setInterpretes(interpretes);
 	}
 		
@@ -39,21 +46,17 @@ final public class Pelicula extends Obra{
 	public void setProductora(String productora) throws Exception {
 		
 		switch (productora){
-		case "WARNER BROS":
-		case "Warner Bros":
-		case "Universal Pictures":
-		case "UNIVERSAL PICTURES":
-		case "20th Century Fox":
-		case "20TH CENTURY FOX":
-		case "Paramount Pictures":
-		case "PARAMOUNT PICTURES":
-		case "Dream Works Pictures":
-		case "DREAM WORKS PICTURES":
-			this.productora = productora;
-			break;
-		default:
-			throw new Exception("PRODUCTORAS PERMITIDAS: Warner Bros, Universal Pictures, 20th Century Fox, Paramount Pictures, Dream Works Pictures" );
-	}
+			case "FOX":
+			case "WARNER BROS":
+			case "FILMAX":
+			case "fox":
+			case "warner bros":
+			case "filmax":
+				this.productora = productora;
+				break;
+			default:
+				throw new Exception("Productora no valida, debe ser: Fox, Warner Bros, Filmax" );
+		}
 	}
 	
 	public ArrayList<Artista> getInterpretes() {
@@ -66,20 +69,21 @@ final public class Pelicula extends Obra{
 		this.interpretes = interpretes;
 	}
 	
-	public void mostrarLibro(){
+	public void mostrarPelicula(){
 		
 		System.out.println("PELICULA:");
 		super.mostrarObra();
 		System.out.println("\tProductora: " + this.productora);
 		System.out.println("\tInterpretes: " + this.interpretes);
 	}
+	
 	public String formattedObra() {
 		
-		String PeliculaStr = 
-				"PRODUCTORA:" + this.productora + "\n" + 
-				"INTERPRETES:" + this.interpretes  + "\n" ;
+		String peliculaStr = 
+			"\tProductora:" + this.productora + "\n" + 
+			"\tInterpretes:" + this.interpretes  + "\n" ;
 				
-				return PeliculaStr;
+			return peliculaStr;
 		
 	}
 

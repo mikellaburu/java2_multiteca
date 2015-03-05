@@ -7,35 +7,35 @@ import java.util.ArrayList;
 
 final public class Artistas {
 	
-	private static ArrayList<Artista> listaArtista = new ArrayList<Artista>();	
+	private static ArrayList<Artista> listaArtistas = new ArrayList<Artista>();	
 	
 
-	public static ArrayList<Artista> getListaArtista() {
-		return listaArtista;
+	public static ArrayList<Artista> getListaArtistas() {
+		return listaArtistas;
 	}
 
-	public static void setListaArtista(ArrayList<Artista> listaArtista) {
-		Artistas.listaArtista = listaArtista;
+	public static void setListaArtistas(ArrayList<Artista> artistas) {
+		Artistas.listaArtistas = artistas;
 	}
 	
 	public static void leerArtistas(String fichero) throws IOException {
 		String linea;
-		FileInputStream f;
-	    InputStreamReader fr;
+		FileInputStream fis;
+	    InputStreamReader isr;
 	    BufferedReader br;
 	    
-	    f = new FileInputStream(fichero);
-    	fr = new InputStreamReader(f, "UTF8");
-    	br = new BufferedReader(fr);
+	    fis = new FileInputStream(fichero);
+    	isr = new InputStreamReader(fis, "UTF8");
+    	br = new BufferedReader(isr);
     	linea = br.readLine();
 		
 		if (linea == null) {
-			System.out.println("No existen artistas en el fichero");
+			System.out.println("No hay artistas en el fichero");
 		}
 		
 		while ((linea != null) && (linea.compareTo("") != 0)) {
 			Artista artista = new Artista (linea,",");
-			listaArtista.add(artista);
+			listaArtistas.add(artista);
 			linea = br.readLine();
 		}
 		br.close();
@@ -47,14 +47,14 @@ final public class Artistas {
 			Artista artista = null;
 
 			do {		
-				if (listaArtista.get(i).getNombre().equalsIgnoreCase(nombre)) {
-					artista = (Artista)listaArtista.get(i);
+				if (listaArtistas.get(i).getNombre().equalsIgnoreCase(nombre)) {
+					artista = (Artista)listaArtistas.get(i);
 				}
 				i++;
-			} while ((artista == null) && (i < listaArtista.size()));
+			} while ((artista == null) && (i < listaArtistas.size()));
 			
 			if (artista == null) {
-				System.out.println("Artista: No se ha encontrado el artista en nuestra base de datos. Se cierra el programa.");
+				System.out.println("No esta ese artista en el fichero. Saliendo del programa.");
 				System.exit(-1);
 			}
 
@@ -63,11 +63,11 @@ final public class Artistas {
 	 
 	 public static void mostrarArtistas() {
 			
-			if (listaArtista.size() == 0) {
-				System.out.println("No se han cargado los artistas del fichero");
+			if (listaArtistas.size() == 0) {
+				System.out.println("No hay artistas en el fichero");
 			}
-			for (int i = 0;i < listaArtista.size();i++) {
-				System.out.println(listaArtista.get(i).formattedArtista());
+			for (int i = 0;i < listaArtistas.size();i++) {
+				System.out.println(listaArtistas.get(i).formattedArtista());
 			}
 		}
  

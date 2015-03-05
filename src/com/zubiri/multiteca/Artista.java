@@ -3,32 +3,32 @@ package com.zubiri.multiteca;
 public class Artista {
 
 	private String nombre;
-	private int añoNacimiento;
+	private int anhoNacimiento;
 	
 	public Artista(){
 		
 	}
 
-	public Artista(String nombre, int añoNacimiento) {
+	public Artista(String nombre, int anhoNacimiento) {
 	
 		this.nombre = nombre;
-		this.añoNacimiento = añoNacimiento;
+		this.anhoNacimiento = anhoNacimiento;
 	}
 	
-	public Artista (String linedArtista , String separ){
+	public Artista (String linedArtista , String separador){
 		
-		String[] strArray = linedArtista.split(separ);
+		String[] strArray = linedArtista.split(separador);
 		this.setNombre(strArray[0]);
-		this.setAñoNacimiento(Integer.parseInt(strArray[1]));
+		this.setAnhoNacimiento(Integer.parseInt(strArray[1]));
 	}
 	
 	public String formattedArtista() {
 
-		String ArtistaStr = 
-		"NOMBRE:" + this.nombre + "\n" + 
-		"AñO DE NACIMIENTO:" + this.añoNacimiento  + "\n";
+		String artistaStr = 
+		"Nombre del artista:" + this.nombre + "\n" + 
+		"AÃ±o de nacimiento:" + this.anhoNacimiento  + "\n";
 		
-		return ArtistaStr;
+		return artistaStr;
 	}
 	
 	public String getNombre() {
@@ -41,14 +41,14 @@ public class Artista {
 		this.nombre = nombre;
 	}
 	
-	public int getAñoNacimiento() {
+	public int getAnhoNacimiento() {
 		
-		return añoNacimiento;
+		return anhoNacimiento;
 	}
 
-	public void setAñoNacimiento(int añoNacimiento) {
+	public void setAnhoNacimiento(int anhoNacimiento) {
 		
-		this.añoNacimiento = añoNacimiento;
+		this.anhoNacimiento = anhoNacimiento;
 	}
 
 }
