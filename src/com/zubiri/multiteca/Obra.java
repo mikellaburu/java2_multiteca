@@ -27,7 +27,7 @@ public abstract class Obra {
 
 		do {
 			try {
-		System.out.println("A�o de edicion de la obra:");
+		System.out.println("Anho de edicion de la obra:");
 		this.setAnhoEdicion(sc.nextInt());
 			}catch(InputMismatchException exception){
 				System.out.println("Eso no es numero");
